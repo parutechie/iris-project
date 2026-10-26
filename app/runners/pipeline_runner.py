@@ -113,6 +113,14 @@ from app.runners.news_loader_runner import (
 )
 
 # ==========================================================
+# SIGNAL INGEST  (IRIS-SIG-42)
+# ==========================================================
+
+from app.runners.signal_ingest_runner import (
+    run as run_signal_ingest,
+)
+
+# ==========================================================
 # BUSINESS INTELLIGENCE
 # ==========================================================
 
@@ -240,6 +248,10 @@ class PipelineRunner:
 
             "osm-infrastructure": (
                 self.osm_infrastructure
+            ),
+
+            "signal-ingest": (
+                self.signal_ingest
             ),
 
             "all": self.run_all,
@@ -849,6 +861,28 @@ class PipelineRunner:
         return result
 
     # ======================================================
+    # SIGNAL INGEST  (IRIS-SIG-42)
+    # ======================================================
+
+    def signal_ingest(self):
+
+        print(
+            "▶ Running Signal Ingest Pipeline..."
+        )
+
+        paths = self.get_paths()
+
+        if paths:
+
+            run_signal_ingest(
+                paths=paths,
+            )
+
+        else:
+
+            run_signal_ingest()
+
+    # ======================================================
     # COMPLETE PIPELINE
     # ======================================================
 
@@ -1133,6 +1167,8 @@ class PipelineRunner:
         self.power_infrastructure()
 
         self.osm_infrastructure()
+
+        self.signal_ingest()
 
         print(
             "\n[Phase 4] Completed"

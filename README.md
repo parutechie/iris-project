@@ -1,351 +1,75 @@
-# 🏢 NRW Data Center Business Intelligence Platform
+## Project Structure
 
-### AI-Powered Geospatial Business Intelligence for Data Center Site Selection and Infrastructure Analysis
-
-The NRW Data Center Business Intelligence Platform is an AI-powered decision support system that combines geospatial analysis, infrastructure intelligence, renewable energy data, market intelligence, and conversational AI into a single interactive dashboard.
-
-Built with **Python**, **PostgreSQL/PostGIS**, **GeoPandas**, **PyDeck**, **Streamlit**, and **OpenAI**, the platform enables users to evaluate data center locations through interactive GIS visualization, site scoring, and AI-assisted insights.
-
----
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Dashboard Preview](#dashboard-preview)
-- [Key Features](#key-features)
-- [System Architecture](#system-architecture)
-- [How It Works](#how-it-works)
-- [Dashboard Modules](#dashboard-modules)
-- [AI Advisor](#ai-advisor)
-- [Technology Stack](#technology-stack)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Running the Dashboard](#running-the-dashboard)
-- [Project Status](#current-project-status)
-- [Roadmap](#roadmap)
-- [Vision](#vision)
-
-![Python]
-![PostgreSQL]
-![PostGIS]
-![Streamlit]
-![OpenAI]
-![Status]
-
-## Overview
-
-Selecting an optimal location for a modern data center requires much more than available land.
-
-Power infrastructure, renewable energy, electrical grid capacity, market activity, and surrounding infrastructure all influence the long-term viability of a site.
-
-The NRW Data Center Business Intelligence Platform integrates multiple public infrastructure datasets into a unified PostgreSQL/PostGIS database and provides an interactive AI-powered dashboard for analyzing, comparing, and evaluating potential data center locations.
-
-The platform combines:
-
-- Geospatial Intelligence
-- Infrastructure Analysis
-- Site Scoring
-- Market Intelligence
-- AI-assisted Decision Support
-
-# Key Features
-
-## GIS Intelligence
-
-✔ Interactive GIS Infrastructure Map
-
-✔ Data Center Visualization
-
-✔ High Voltage Substations
-
-✔ Transformers
-
-✔ Transmission Lines
-
-✔ Renewable Energy Assets
-
----
-
-## Business Intelligence
-
-✔ KPI Dashboard
-
-✔ Site Intelligence
-
-✔ Site Score
-
-✔ Market Intelligence
-
-✔ News Intelligence
-
-✔ Spatial Infrastructure Analysis
-
----
-
-## Artificial Intelligence
-
-✔ AI Advisor
-
-✔ Natural Language Queries
-
-✔ Executive Infrastructure Summaries
-
-✔ Context-aware Responses
-
-✔ Retrieval-Augmented Generation (RAG)
-
----
-
-## Spatial Intelligence
-
-✔ Power Readiness Analysis
-
-✔ Renewable Energy Analysis
-
-✔ Infrastructure Distance Calculations
-
-✔ Land Value Integration
-
-✔ Site Ranking
-
-# System Architecture
-
-```mermaid
-flowchart TD
-
-A[External Data Sources]
-
-B[ETL Pipelines]
-
-C[PostgreSQL + PostGIS]
-
-D[Repository Layer]
-
-E[Business Services]
-
-F[Interactive Dashboard]
-
-G[Site Intelligence]
-
-H[News Intelligence]
-
-I[AI Advisor]
-
-J[Executive Decision Support]
-
-A --> B
-B --> C
-C --> D
-D --> E
-
-E --> F
-E --> G
-E --> H
-
-F --> I
-G --> I
-H --> I
-
-I --> J
 ```
-```
-
-┌──────────────────────┐
-│ External Data Sources│
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│    ETL Pipelines     │
-└──────────┬───────────┘
-           ▼
-┌──────────────────────┐
-│ PostgreSQL + PostGIS │
-└──────────┬───────────┘
-           ▼
-┌──────────────────────┐
-│ Repository Layer     │
-└──────────┬───────────┘
-           ▼
-┌──────────────────────┐
-│ Business Services    │
-└──────────┬───────────┘
-           ▼
-      ┌────┴────┐
-      ▼         ▼
-┌──────────┐ ┌──────────┐
-│ GIS Map  │ │ News BI  │
-└────┬─────┘ └────┬─────┘
-     │            │
-     └────┬───────┘
-          ▼
-┌──────────────────────┐
-│ Site Intelligence    │
-└──────────┬───────────┘
-           ▼
-┌──────────────────────┐
-│ AI Advisor           │
-└──────────┬───────────┘
-           ▼
-┌──────────────────────┐
-│ OpenAI GPT           │
-└──────────┬───────────┘
-           ▼
-┌──────────────────────┐
-│ Executive Insights   │
-└──────────────────────┘
-```
-```                  
-
-# Dashboard Modules
-
-## Interactive GIS Map
-
-Visualizes:
-
-- Data Centers
-- High Voltage Substations
-- Transformers
-- Renewable Energy Assets
-- High Voltage Transmission Lines
-
----
-
-## KPI Dashboard
-
-Provides executive metrics for infrastructure assets, facilities, and renewable energy resources.
-
----
-
-## Site Intelligence
-
-Displays infrastructure proximity, renewable energy availability, land valuation, and technical site characteristics for the selected facility.
-
----
-
-## Site Score
-
-Calculates a unified infrastructure readiness score using spatial analysis and business intelligence metrics.
-
----
-
-## News Intelligence
-
-Aggregates recent industry news and links relevant articles to companies and facilities.
-
----
-
-## AI Advisor
-
-Provides conversational access to infrastructure intelligence using natural language.
-
-
-# AI Advisor
-
-The AI Advisor enables users to explore infrastructure intelligence using natural language.
-
-Current capabilities
-
-- Site Summaries
-- Infrastructure Analysis
-- Grid Readiness Evaluation
-- Renewable Energy Analysis
-- Executive Recommendations
-- News Summaries
-
-Upcoming
-
-- Intent Detection
-- Tool Routing
-- Context Awareness
-- LangGraph Agents
-- Agentic RAG
-
-
-# Technology Stack
-
-## Backend
-
-- Python
-- SQLAlchemy
-- PostgreSQL
-- PostGIS
-
-## GIS
-
-- GeoPandas
-- Shapely
-- PyDeck
-
-## Dashboard
-
-- Streamlit
-
-## AI
-
-- OpenAI
-- Retrieval-Augmented Generation (RAG)
-
-## Data Processing
-
-- Pandas
-- JSON
-- GeoJSON
-
-nrw-dc-bi/
-│
+iris-sample/
+├── main.py                          # CLI entry point
+├── pyproject.toml                   # Dependencies (uv)
+├── requirements.txt                 # Dependencies (pip)
+├── docker-compose.yml               # PostgreSQL + PostGIS + pgAdmin
+├── .env.example                     # Environment variable template
+├── alembic/                         # Database migrations
+│   └── versions/
 ├── app/
-│   ├── services/
-│   ├── repositories/
+│   ├── ai/                          # AI prompts and keywords
+│   ├── commands/                    # Command pattern wrappers
+│   ├── config/                      # DataPaths, data sources
 │   ├── database/
-│   ├── spatial/
-│   ├── intelligence/
-│   └── ai/
-│
-├── ui/
-│
-├── data/
-│
-├── scripts/
-│
-├── tests/
-│
-└── README.md
+│   │   ├── base.py                  # SQLAlchemy DeclarativeBase
+│   │   ├── session.py               # Engine + SessionLocal
+│   │   ├── models/                  # ORM models
+│   │   └── repositories/            # SQL query layer
+│   ├── enrichers/                   # Power + BORIS enrichers
+│   ├── extractors/                  # Entity extraction (MockExtractor)
+│   ├── intelligence/                # News intelligence builder
+│   ├── loaders/                     # Database loaders
+│   ├── news/                        # RSS fetch, parse, extract, match
+│   ├── parsers/                     # Signal ingest parser
+│   ├── runners/                     # Pipeline orchestrators
+│   ├── scrapers/                    # Signal ingest fetcher
+│   └── services/                    # Business logic layer
+├── ui/                              # Streamlit dashboard
+├── tests/                           # Automated tests
+│   ├── fixtures/                    # Sample data for tests
+│   ├── test_signal_ingest_parser.py
+│   └── test_signal_ingest_loader.py
+└── scripts/                         # Standalone utilities and SQL queries
+```
 
-
-# Installation
+---
 
 ## Prerequisites
 
-- Python 3.12+
-- PostgreSQL 17 + PostGIS
-- uv (Python package manager)
+| Requirement    | Version | Notes                                |
+| -------------- | ------- | ------------------------------------ |
+| Python         | 3.12+   |                                      |
+| Docker Desktop | latest  | For PostgreSQL + PostGIS             |
+| uv             | latest  | Python package manager (recommended) |
+| git            | any     |                                      |
 
-Install uv if you don't already have it:
-
-```bash
-pip install uv
-```
-
-or
+**Install uv** (if you don't have it):
 
 ```bash
+# macOS / Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Windows
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
 ---
 
-## Clone the Repository
+## Setup
+
+Follow these steps in order the first time you set up the project.
+
+### Step 1 — Clone the repository
 
 ```bash
 git clone <repository-url>
-
-cd nrw-dc-bi
+cd iris-sample
 ```
 
----
-
-## Create a Virtual Environment
+### Step 2 — Create a virtual environment
 
 ```bash
 uv venv
@@ -353,134 +77,417 @@ uv venv
 
 Activate it:
 
-### Windows
-
 ```bash
+# macOS / Linux
+source .venv/bin/activate
+
+# Windows
 .venv\Scripts\activate
 ```
 
-### Linux / macOS
-
-```bash
-source .venv/bin/activate
-```
-
----
-
-## Install Dependencies
+### Step 3 — Install dependencies
 
 ```bash
 uv sync
 ```
 
-If you're not using a `uv.lock` yet, then instead use:
+Or with plain pip:
 
 ```bash
-uv pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
----
-
-## Configure Environment
+### Step 4 — Configure environment variables
 
 ```bash
 cp .env.example .env
 ```
 
-Update the database connection and OpenAI API key.
+Open `.env` and review the values. The defaults are pre-configured to match `docker-compose.yml`, so if you are using Docker you can leave them as-is:
 
----
+```env
+POSTGRES_DB=iris
+POSTGRES_USER=iris_user
+POSTGRES_PASSWORD=changeme
+DATABASE_URL=postgresql://iris_user:changeme@localhost:5433/iris
+OPENAI_API_KEY=sk-...        # optional — only needed for the AI Advisor
+```
 
-## Run Database Migrations
+> **Security note:** Never commit `.env` to version control. It is listed in `.gitignore`.
+
+### Step 5 — Start the database
+
+```bash
+docker-compose up -d
+```
+
+This starts two containers:
+
+| Container     | What it is                  | Port                    |
+| ------------- | --------------------------- | ----------------------- |
+| `nrw-postgis` | PostgreSQL 17 + PostGIS 3.5 | `localhost:5433`        |
+| `nrw-pgadmin` | pgAdmin 4 web UI            | `http://localhost:5050` |
+
+Wait about 10 seconds for PostgreSQL to be healthy, then verify:
+
+```bash
+docker ps
+```
+
+You should see both containers with status `Up`.
+
+> **Apple Silicon (M1/M2/M3) note:** The `docker-compose.yml` uses `imresamu/postgis:17-3.5` which provides native `linux/arm64` builds. The official `postgis/postgis` image does not support ARM64.
+
+### Step 6 — Run database migrations
 
 ```bash
 alembic upgrade head
 ```
 
+This creates all schemas and tables:
+
+| Schema         | Tables created                                                                                                              |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `iris_core`    | `facilities`, `news_articles`, `news_matches`, `energy_assets`, `land_values`, `power_infrastructure`, `osm_infrastructure` |
+| `iris_staging` | `signal_ingest`                                                                                                             |
+
+You should see output like:
+
+```
+INFO  [alembic.runtime.migration] Running upgrade ... -> c4f1a2d83e90, create iris_staging.signal_ingest
+```
+
 ---
 
-## Start the Dashboard
+## Running the Pipeline
+
+The platform has a single CLI entry point — `main.py`. Each pipeline component can be run individually or all together.
+
+### Run a single command
+
+```bash
+python main.py <command>
+```
+
+Available commands:
+
+| Command             | What it does                                                               |
+| ------------------- | -------------------------------------------------------------------------- |
+| `signal-ingest`     | Fetch Thomas Daily RSS → classify → load into `iris_staging.signal_ingest` |
+| `news`              | Fetch DataCenter-Insider RSS → parse → extract entities                    |
+| `entity-matcher`    | Match news entities against known facilities                               |
+| `news-load`         | Load matched news into `iris_core.news_articles` + `news_matches`          |
+| `news-intelligence` | Aggregate news signals onto facilities GeoJSON                             |
+| `facilities`        | Scrape data center facilities                                              |
+| `overpass`          | Fetch OSM infrastructure data                                              |
+| `mastr`             | Fetch renewable energy data                                                |
+| `site-score`        | Calculate site readiness scores                                            |
+| `land-values`       | Load BORIS land value data                                                 |
+| `all`               | Run the complete ETL pipeline end-to-end                                   |
+
+### Example — run the signal ingest pipeline
+
+```bash
+python main.py signal-ingest
+```
+
+What happens:
+
+```
+[Step 1] Fetching Thomas Daily feed...
+  → Attempts live RSS from https://www.thomas-daily.de/rss/feed/
+  → If unreachable, falls back to tests/fixtures/thomas_daily_sample.json
+  → Saves to: data/raw/signal_ingest/signal_raw.json
+
+[Step 2] Parsing and classifying signals...
+  → Parses publication dates to UTC datetimes
+  → Classifies each article: brownfield_deal / logistics_purchase /
+    commercial_transaction / unknown
+  → Extracts city names from article text
+  → Geocodes locations to EPSG:25832 via Nominatim (OpenStreetMap)
+  → Saves to: data/processed/signal_ingest/signals.json
+
+[Step 3] Loading into iris_staging.signal_ingest...
+  → Upserts each record using source_url as the dedup key
+  → First run: inserts all records
+  → Subsequent runs: updates existing records, no duplicates created
+  → Prints: Inserted / Updated / Skipped counts
+```
+
+### Run without geocoding (faster, no network needed)
+
+```bash
+python3 -c "
+from app.runners.signal_ingest_runner import run
+run(geocode_enabled=False)
+"
+```
+
+Useful for offline demos or when you want to skip the ~1 second per article Nominatim delay.
+
+### Run the full pipeline
+
+```bash
+python main.py all
+```
+
+This runs all four phases in sequence with an isolated run workspace:
+
+```
+[Phase 1] Data Acquisition      — facilities, markets, transformations
+[Phase 2] Infrastructure        — OSM/Overpass, MaStR, BORIS
+[Phase 3] Spatial Intelligence  — power enricher, site score
+[Phase 4] Business Intelligence — news, entity matching, signal ingest, land values
+```
+
+### Re-running is safe
+
+Every loader in the pipeline is **idempotent**. Re-running any command will update existing records rather than creating duplicates. This applies to `signal-ingest`, `news-load`, and all other loaders.
+
+---
+
+## Running the Dashboard
 
 ```bash
 streamlit run ui/app.py
 ```
 
-The application will be available at:
+Open your browser at: **http://localhost:8501**
 
-```
-http://localhost:8501
-```
+The dashboard requires a running database with data loaded. Run at least `python main.py signal-ingest` and `python main.py news-load` first to populate the business intelligence tables.
 
-## Requirements
+> The AI Advisor tab requires `OPENAI_API_KEY` to be set in `.env`.
 
-- Python 3.12+
-- PostgreSQL 17
-- PostGIS
-- Git
-- uv
+---
 
-# Running the Dashboard
+## Running the Tests
+
+The test suite requires no database and no network connection. All tests run against in-memory SQLite and the bundled fixture file.
 
 ```bash
-streamlit run ui/app.py
+python -m pytest tests/ -v
 ```
-# Current Project Status
 
-## Completed
+Expected output:
 
-- Data Collection
-- ETL Pipelines
-- GIS Dashboard
-- Interactive Map
-- Site Intelligence
-- Site Score
-- News Intelligence
-- AI Advisor
-- Infrastructure Layers
+```
+collected 46 items
 
-## In Progress
+tests/test_signal_ingest_loader.py::TestInsert::test_single_insert         PASSED
+tests/test_signal_ingest_loader.py::TestInsert::test_record_persisted      PASSED
+tests/test_signal_ingest_loader.py::TestInsert::test_multiple_inserts      PASSED
+tests/test_signal_ingest_loader.py::TestIdempotency::test_rerun_...        PASSED
+... (42 more)
 
-- Context-aware AI
-- Intent Detection
-- Tool Routing
-- LangGraph Integration
+46 passed in 0.3s
+```
 
-## Planned
+### What the tests cover
 
-- Multi-Agent AI
-- Predictive Site Recommendations
-- Investment Forecasting
-- Voice Interface
+**`test_signal_ingest_loader.py` — 16 tests**
 
+| Test class        | What is tested                                                                                   |
+| ----------------- | ------------------------------------------------------------------------------------------------ |
+| `TestInsert`      | Single insert, multiple inserts, records persisted correctly                                     |
+| `TestIdempotency` | No duplicate on re-run, title update, signal type update, mixed insert+update batches, 3× re-run |
+| `TestSkipping`    | Missing URL skipped, None URL skipped, mixed valid/invalid batch                                 |
+| `TestGeometry`    | WKT stored correctly, NULL geometry stored correctly                                             |
+| `TestParseErrors` | Error records inserted, error field cleared on recovery re-run                                   |
 
-# Roadmap
+**`test_signal_ingest_parser.py` — 30 tests**
 
-## Completed
+| Test class               | What is tested                                                                                                                                                                                     |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `TestDateParsing`        | RFC 2822, ISO 8601, None, empty string, gibberish — all handled gracefully                                                                                                                         |
+| `TestClassification`     | All four signal types, brownfield priority over logistics, case-insensitive matching                                                                                                               |
+| `TestLocationExtraction` | City in title, city in summary, title preferred over summary, no match, partial match boundary                                                                                                     |
+| `TestGeometryProjection` | Valid UTM 32N coordinates (Cologne), out-of-bounds rejection (New York), polar rejection                                                                                                           |
+| `TestParseFixture`       | Full fixture run: record count, output file created, required fields present, signal types classified, locations extracted, dates parsed, error record handling, empty input, missing input raises |
 
-- ETL Platform
-- GIS Visualization
-- Business Intelligence Dashboard
-- AI Advisor
-- News Intelligence
+---
 
-## Next
+## IRIS-SIG-42 — Signal Ingest
 
-- Intent Detection
-- Context-aware Responses
-- Agentic RAG
-- LangGraph Workflows
+### Assignment summary
 
-## Future
+**Task ID:** IRIS-SIG-42  
+**Integration Pattern:** D (Email / RSS Parser)  
+**Target table:** `iris_staging.signal_ingest`  
+**Objective:** Extract commercial transaction headlines, logistics purchases, and brownfield deals from a daily morning news feed and load them into PostgreSQL with idempotent operations.
 
-- Predictive Site Ranking
-- Multi-Agent Decision Support
-- Voice-enabled AI Advisor
+---
 
+### Data source
 
-# Vision
+**Thomas Daily** (`https://www.thomas-daily.de`) is a German-language B2B news service publishing daily commercial real-estate transaction headlines, logistics property deals, and brownfield redevelopment news.
 
-The long-term vision is to build an AI-powered decision support platform for data center planning and infrastructure investment.
+Public RSS feed:
 
-By combining geospatial intelligence, power infrastructure, renewable energy, land valuation, market intelligence, and conversational AI, the platform enables users to evaluate and compare potential data center locations through natural language interaction.
+```
+https://www.thomas-daily.de/rss/feed/
+```
 
-The project is designed to evolve into a comprehensive executive decision-support system that assists planners, investors, and infrastructure specialists in identifying optimal data center locations.
+No authentication required. Publishes new entries every morning in standard RSS 2.0.
+
+**Source selection rationale:** The assignment brief states "source endpoint to be confirmed". Thomas Daily was selected because it is the primary German-language daily news service covering all three required signal types: commercial transactions, logistics purchases, and brownfield deals.
+
+**Fixture fallback:** When the live feed is unreachable the fetcher automatically loads `tests/fixtures/thomas_daily_sample.json` (8 representative articles) so the pipeline runs and all tests pass without any network access. This behaviour is controlled by `FIXTURE_FALLBACK_ENABLED = True` in `app/scrapers/signal_ingest_fetcher.py`.
+
+---
+
+### Pipeline components
+
+```
+app/scrapers/signal_ingest_fetcher.py        Fetches RSS feed or loads fixture
+app/parsers/signal_ingest_parser.py          Normalises, classifies, geocodes
+app/loaders/signal_ingest_loader.py          Idempotent upsert to PostgreSQL
+app/commands/load_signal_ingest_command.py   Command wrapper
+app/runners/signal_ingest_runner.py          Orchestrates all three steps
+app/database/models/signal_ingest.py         SQLAlchemy model
+app/database/repositories/signal_ingest_repository.py
+alembic/versions/c4f1a2d83e90_...py         Database migration
+tests/test_signal_ingest_parser.py           30 parser tests
+tests/test_signal_ingest_loader.py           16 loader / idempotency tests
+tests/fixtures/thomas_daily_sample.json      8 representative fixture articles
+scripts/validate_signal_ingest.sql           10 SQL validation queries
+```
+
+---
+
+### Signal type classification
+
+Each article is classified into one of four types by keyword matching against the German-language title and summary:
+
+| Signal type              | Matched when text contains                                              |
+| ------------------------ | ----------------------------------------------------------------------- |
+| `brownfield_deal`        | brownfield, brachfläche, industriebrache, revitalisierung, konversion … |
+| `logistics_purchase`     | logistikzentrum, spedition, fulfillment, umschlaghalle, supply chain …  |
+| `commercial_transaction` | erworben, kauft, investiert, mio. euro, kaufpreis, übernimmt …          |
+| `unknown`                | none of the above                                                       |
+
+**Priority order:** brownfield → logistics → commercial → unknown.
+A brownfield article that also mentions a logistics facility is always classified as `brownfield_deal`.
+
+---
+
+### Geographic context
+
+City names are extracted from article text by word-boundary regex matching against a list of NRW and major German cities. Extracted names are geocoded to EPSG:25832 (UTM Zone 32N) using the Nominatim OpenStreetMap API.
+
+| Situation                                | Result                                                                                             |
+| ---------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Single geocoding result                  | `location_resolved = true`, geometry stored                                                        |
+| Multiple candidates                      | `location_resolved = true`, `location_ambiguous = true`, all candidates logged in `location_notes` |
+| No result found                          | `location_resolved = false`, reason stored in `location_notes`                                     |
+| Coordinates outside Germany bounding box | Geometry set to NULL, logged as warning                                                            |
+
+Nominatim usage policy (1 request/second) is enforced with a 1.1-second delay between geocoding calls. No API key is required.
+
+---
+
+### Database table: `iris_staging.signal_ingest`
+
+| Column               | Type                     | Description                                                                     |
+| -------------------- | ------------------------ | ------------------------------------------------------------------------------- |
+| `id`                 | `varchar(36)`            | UUID primary key                                                                |
+| `source`             | `varchar(100)`           | Source name, e.g. `Thomas Daily`                                                |
+| `source_url`         | `text`                   | Canonical article URL — **stable dedup key**                                    |
+| `title`              | `text`                   | Article headline                                                                |
+| `summary`            | `text`                   | Article excerpt                                                                 |
+| `published_at`       | `timestamptz`            | Publication date (UTC)                                                          |
+| `signal_type`        | `varchar(50)`            | `brownfield_deal` / `logistics_purchase` / `commercial_transaction` / `unknown` |
+| `location_name`      | `varchar(255)`           | Raw city name extracted from text                                               |
+| `location_resolved`  | `boolean`                | True when geometry was successfully geocoded                                    |
+| `location_ambiguous` | `boolean`                | True when multiple geocoding candidates existed                                 |
+| `location_notes`     | `text`                   | Geocoding notes, errors, or ambiguity details                                   |
+| `latitude`           | `float`                  | WGS84 latitude                                                                  |
+| `longitude`          | `float`                  | WGS84 longitude                                                                 |
+| `geometry`           | `geometry(POINT, 25832)` | EPSG:25832 point geometry                                                       |
+| `processed`          | `boolean`                | True after downstream processing                                                |
+| `parse_error`        | `text`                   | Error message if parsing failed                                                 |
+| `created_at`         | `timestamptz`            | Row creation time                                                               |
+| `updated_at`         | `timestamptz`            | Row last update time                                                            |
+
+---
+
+### Idempotency guarantee
+
+`source_url` is the stable deduplication key enforced by a `UNIQUE` constraint.
+
+- **First run:** all records are inserted.
+- **Subsequent runs:** existing records are updated in place — title, summary, signal type, location, and geometry are refreshed.
+- **Duplicate records are never created**, regardless of how many times the pipeline runs.
+
+This is verified by `TestIdempotency` in the test suite, including a test that runs the loader three times and asserts exactly one row exists.
+
+---
+
+### Field mapping
+
+| RSS field          | Database column         | Transformation                           |
+| ------------------ | ----------------------- | ---------------------------------------- |
+| `<title>`          | `title`                 | Stripped whitespace                      |
+| `<link>`           | `source_url`            | Stripped whitespace, dedup key           |
+| `<description>`    | `summary`               | Stripped whitespace                      |
+| `<pubDate>`        | `published_at`          | RFC 2822 → UTC datetime                  |
+| Feed name          | `source`                | Hardcoded `"Thomas Daily"`               |
+| Keyword match      | `signal_type`           | 4-way classification                     |
+| First city in text | `location_name`         | Word-boundary regex                      |
+| Nominatim lat/lon  | `latitude`, `longitude` | WGS84 floats                             |
+| pyproj transform   | `geometry`              | `SRID=25832;POINT(easting northing)` WKT |
+
+---
+
+### SQL validation
+
+After loading data, run the bundled validation queries:
+
+```bash
+psql $DATABASE_URL -f scripts/validate_signal_ingest.sql
+```
+
+The script runs 10 queries covering:
+
+1. Signal type distribution
+2. Deduplication check (should return 0 rows)
+3. Missing required fields
+4. Records with parse errors
+5. Geocoding quality summary
+6. Invalid geometry check (coordinates outside Germany)
+7. Publication date coverage
+8. Most recent 10 signals
+9. Geographic coverage by city
+10. All resolved geometries as WKT (for GIS visualisation)
+
+---
+
+### Known limitations
+
+1. **Keyword classification** — not AI-driven. Accuracy can be improved by replacing `MockExtractor` with an `OpenAIExtractor` (the project already has the prompt and interface designed for this).
+
+2. **One location per article** — the first matching city in title then summary is used. Articles mentioning multiple locations will only have one geometry.
+
+3. **Nominatim rate limit** — 1 request per second. A feed with 50 articles takes ~1 minute for geocoding. A paid geocoding API (Google Maps, Here) would remove this constraint.
+
+4. **Source URL as dedup key** — if the source changes its URL structure (e.g. adds tracking parameters), articles may be re-inserted. URL normalisation beyond whitespace stripping is not currently applied.
+
+5. **RSS feed depth** — RSS feeds typically expose only the most recent 20–50 articles. Historical backfill requires a different approach (direct API or archived feed access).
+
+---
+
+## Project Status
+
+| Area                                | Status         |
+| ----------------------------------- | -------------- |
+| ETL Pipelines                       | ✅ Complete    |
+| GIS Dashboard                       | ✅ Complete    |
+| Site Intelligence                   | ✅ Complete    |
+| Site Score                          | ✅ Complete    |
+| News Intelligence                   | ✅ Complete    |
+| AI Advisor                          | ✅ Complete    |
+| Signal Ingest (IRIS-SIG-42)         | ✅ Complete    |
+| Context-aware AI / Intent Detection | 🔄 In Progress |
+| LangGraph Integration               | 🔄 In Progress |
+| Multi-Agent AI                      | 📋 Planned     |
+| Predictive Site Recommendations     | 📋 Planned     |
+| Voice Interface                     | 📋 Planned     |

@@ -153,6 +153,26 @@ class DataPaths:
         )
 
     # =====================================================
+    # SIGNAL INGEST  (IRIS-SIG-42)
+    # =====================================================
+
+    @property
+    def signal_raw(self) -> Path:
+        """Raw feed data for signal ingest pipeline."""
+        return (
+            self.raw
+            / "signal_ingest"
+        )
+
+    @property
+    def signal_processed(self) -> Path:
+        """Normalized and classified signal records."""
+        return (
+            self.processed
+            / "signal_ingest"
+        )
+
+    # =====================================================
     # FACILITIES
     # =====================================================
 
@@ -201,6 +221,10 @@ class DataPaths:
             # News
             self.news_raw,
             self.news_processed,
+
+            # Signal Ingest (IRIS-SIG-42)
+            self.signal_raw,
+            self.signal_processed,
 
             # Facilities
             self.facilities_processed,

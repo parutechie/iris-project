@@ -1,10 +1,11 @@
-version: "3.9"
-
 services:
 
   postgres:
 
-    image: postgis/postgis:17-3.5
+    # imresamu/postgis provides multi-arch builds including
+    # linux/arm64 (Apple Silicon M1/M2/M3).
+    # The official postgis/postgis image does not have arm64.
+    image: imresamu/postgis:17-3.5
 
     container_name: nrw-postgis
 
@@ -22,18 +23,21 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
       interval: 10s
       timeout: 5s
       retries: 5
 
   pgadmin:
 
-    image: dpage/pgadmin4
+    # dpage/pgadmin4 supports arm64 natively from v7+
+    image: dpage/pgadmin4:latest
 
     container_name: nrw-pgadmin
 
     restart: unless-stopped
+
+    platform: linux/amd64
 
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@gmail.com

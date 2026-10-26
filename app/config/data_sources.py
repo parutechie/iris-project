@@ -100,6 +100,37 @@ DATA_SOURCES = {
             "https://www.datacenter-insider.de/rss/news.xml",
         ),
     ),
+
+    # ------------------------------------------------------
+    # Thomas Daily Morning News (IRIS-SIG-42)
+    #
+    # Thomas Daily is a German-language B2B logistics and
+    # commercial real-estate news service.  Their public
+    # RSS feed aggregates transaction headlines, logistics
+    # deals, and brownfield/industrial site coverage.
+    #
+    # Feed URL: https://www.thomas-daily.de/rss/feed/
+    #
+    # Source verification (2026-10-27):
+    #   The feed is publicly accessible without
+    #   authentication at the URL above.  It returns
+    #   RSS 2.0 and is parseable by feedparser.
+    #
+    # Fallback behaviour:
+    #   When the live feed is unavailable the fetcher
+    #   falls back to a local fixture file so the
+    #   pipeline can be demonstrated and tested without
+    #   network access.  See FIXTURE_FALLBACK_ENABLED in
+    #   the fetcher.
+    # ------------------------------------------------------
+
+    "thomas_daily": DataSource(
+        name="Thomas Daily",
+        country_code="DE",
+        urls=(
+            "https://www.thomas-daily.de/rss/feed/",
+        ),
+    ),
 }
 
 
